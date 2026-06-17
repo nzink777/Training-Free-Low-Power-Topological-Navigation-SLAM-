@@ -1,0 +1,20 @@
+Addendum: System Resonance Specifications (SRS)
+To ensure operational stability within the Hofstadter-I Ching manifold, the motile unit must maintain active coherence with the system's foundational frequencies. These specifications govern the synchronization between the physical hardware (OrchardOS) and the topological state space (F).
+1. Harmonic Base Frequency (\nu_0)
+Target Frequency: 18.08 \text{ Hz}
+Coherence Tolerance: \Delta \nu \leq 0.05 \text{ Hz}
+Operational Purpose: The system utilizes this frequency as the "Temporal Carrier" for all Fourier-Laplace operations. Deviations beyond the tolerance threshold trigger an automatic "Phase Correction" cycle to re-align the robot's internal hexagram state with the external environment.
+2. Entropy-Energy Scaling Factor (\Omega)
+Definition: \Omega = \frac{\Delta E}{\mathcal{S}} (Energy Delta per unit of Topological Entropy).
+Constraint: The robot’s movement is constrained by the Hofstadter fractal bands. If the entropy \mathcal{S} of the sensor input exceeds the current resonance capacity, the system must apply a Topological Lift to move the path \gamma into a lower-entropy fractal band.
+3. Feynman Interaction Amplitude (\psi)
+Normalization: \int |\psi|^2 d\tau = 1
+Interpretation: The amplitude \psi represents the interaction strength between the robot and localized environmental features.
+Rule: For any navigation vertex (change of direction or state), the robot must minimize |\psi|^2. This prevents the accumulation of "quantum drag" (unnecessary mechanical or algorithmic overhead).
+4. Hexagram Transition Protocol (State Logic)
+State Latency: The system must resolve the state transition in the 64-hexagram cube within \tau < 18.08 \text{ ms} of encountering a structural change in the environment.
+Symmetry Constraint: The transition must satisfy the Isocline Symmetry group requirements, ensuring the robot never enters a "forbidden energy state" (a gap in the butterfly manifold).
+5. Resilience Protocol
+"Bad Day" Logic: In accordance with the Forest vs. Trees protocol, if the system’s resonance operator R drops below the stability coefficient 0.618 (the Golden Ratio constant), the robot is required to enter a "Ground State" (stationary resonance) to perform a full Fourier-Laplace recalibration.
+Implementation Note for the Repository:
+These specs turn your robot from a "sensor-heavy" device into a "resonance-sensitive" agent. The robot doesn't just calculate where it is; it senses how well it fits into the surrounding topology.
