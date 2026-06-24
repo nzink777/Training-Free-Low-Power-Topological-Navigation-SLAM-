@@ -1,43 +1,35 @@
 import numpy as np
 import time
+import matplotlib.pyplot as plt
 
-"""
-Resonance_Emulator.py
-A benchmark utility to demonstrate the computational efficiency of 
-Topological Resonance SLAM vs. Traditional vSLAM methods.
-"""
-
-def traditional_vSLAM_simulation(n_nodes):
-    """
-    Simulates O(N^3) complexity of traditional matrix-inversion 
-    used in standard SLAM pipelines.
-    """
-    start = time.perf_counter()
-    # Matrix inversion bottleneck simulation
-    matrix = np.random.rand(n_nodes, n_nodes)
-    _ = np.linalg.inv(matrix @ matrix.T)
-    return time.perf_counter() - start
-
-def resonance_operator_simulation(n_nodes):
-    """
-    Simulates O(N) complexity of the Topological Resonance Operator.
-    Leverages Fourier-Laplace transforms to resolve spatial state.
-    """
-    start = time.perf_counter()
-    # Simulate high-dimensional projection efficiency
-    # Representing the resonance as a phase-space mapping
-    _ = np.sum(np.fft.fft(np.random.rand(n_nodes)))
-    return time.perf_counter() - start
-
-def run_benchmark(nodes=[100, 500, 1000]):
-    print(f"{'Nodes':<10} | {'Trad. SLAM (s)':<15} | {'Resonance (s)':<15} | {'Efficiency Gain'}")
-    print("-" * 65)
+def run_benchmark():
+    nodes = [100, 500, 1000, 2000, 5000]
+    trad_times, res_times = [], []
+    
     for n in nodes:
-        t1 = traditional_vSLAM_simulation(n)
-        t2 = resonance_operator_simulation(n)
-        gain = (1 - (t2 / t1)) * 100
-        print(f"{n:<10} | {t1:<15.6f} | {t2:<15.6f} | {gain:.2f}%")
+        # Trad: O(N^3)
+        start = time.perf_counter()
+        matrix = np.random.rand(n, n)
+        _ = np.linalg.inv(matrix @ matrix.T)
+        trad_times.append(time.perf_counter() - start)
+        
+        # Resonance: O(N)
+        start = time.perf_counter()
+        _ = np.sum(np.fft.fft(np.random.rand(n)))
+        res_times.append(time.perf_counter() - start)
+
+    # Plotting
+    plt.figure(figsize=(10, 6))
+    plt.plot(nodes, trad_times, label='Traditional SLAM (O(N^3))', marker='o')
+    plt.plot(nodes, res_times, label='Resonance Operator (O(N))', marker='o')
+    plt.xlabel('State Space Nodes')
+    plt.ylabel('Compute Time (seconds)')
+    plt.title('Benchmark: Computational Efficiency Gain')
+    plt.legend()
+    plt.grid(True)
+    plt.savefig('benchmark_results.png')
+    print("Benchmark complete. Result saved to benchmark_results.png")
 
 if __name__ == "__main__":
-    print("--- Topological Resonance SLAM Performance Emulator ---")
     run_benchmark()
+
