@@ -10,13 +10,15 @@
 
 ## 1. Systemic Hardware Efficiency
 ### Architectural Advantage
-This repository presents a Neuromorphic Topological SLAM architecture that replaces traditional, compute-heavy geometric point-cloud processing with a resonance-based approach. By anchoring spatial navigation to a Harmonic Base Frequency of 18.08 Hz[span_0](start_span)[span_0](end_span), this system treats the navigation environment as a set of topological phase-spaces rather than individual pixels[span_1](start_span)[span_1](end_span).
+This repository presents a Neuromorphic Topological SLAM architecture that replaces traditional, compute-heavy geometric point-cloud processing with a resonance-based approach. By anchoring spatial navigation to a Harmonic Base Frequency of 18.08 Hz, this system treats the navigation environment as a set of topological phase-spaces rather than individual pixels.
 
 The core navigation optimization is defined as:
 `R = F_L(ψ_Feynman)` 
-*(Where F_L represents the Fourier-Laplace transform)*[span_2](start_span)[span_2](end_span).
+*(Where F_L represents the Fourier-Laplace transform)*.
 
-This reduces 'quantum drag' (algorithmic overhead) by minimizing the interaction amplitude at navigation vertices[span_3](start_span)[span_3](end_span). Systemically, this yields:
+This reduces 'quantum drag' (algorithmic overhead) by minimizing the interaction amplitude at navigation vertices. 
+
+Systemically, this yields:
 
 *   **Compute Footprint:** Reduction of onboard navigation processing by >90% compared to standard vSLAM.
 *   **Hardware Compatibility:** Enables high-fidelity autonomous navigation on low-power ARM Cortex or similar edge-hardware, bypassing the need for heavy, high-draw GPUs.
