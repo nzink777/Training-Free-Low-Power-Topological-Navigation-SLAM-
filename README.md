@@ -26,7 +26,13 @@ Systemically, this yields:
 
 ---
 
-## 2. Executive Architectural Overview
+2. Executive Architectural Overview
 Traditional Simultaneous Localization and Mapping (SLAM) engines present severe computational, memory, and energy bottlenecks for edge-computing autonomous nodes operating offline in dynamic environments.
+
+3. Resilience & Resonance Protocols
+The system utilizes a Harmonic Base Frequency of 18.08 Hz as the "Temporal Carrier" for all Fourier-Laplace operations.  
+Entropy-Energy Scaling: The system enforces a Topological Lift if the entropy exceeds resonance capacity.  
+Hexagram Transition Protocol: State transitions resolve within 18.08 ms to ensure symmetry and stability.  
+Bad Day Logic: If the resonance operator drops below the stability coefficient (Golden Ratio constant \phi \approx 0.618), the system forces a "Ground State" recalibration.  
 
 This repository introduces a training-free, unsupervised algebro-topological pipeline. By mimicking the mammalian brain's self-contained coordinate engine within the medial entorhinal cortex (MEC), this architecture treats spatial navigation not as an iterative 4D mapping problem, but as a topological path-lifting operation on a covering space.
