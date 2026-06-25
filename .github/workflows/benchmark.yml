@@ -9,14 +9,14 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v5
       - name: Set up Python
-        uses: actions/setup-python@v4
+        uses: actions/setup-python@v5
         with: { python-version: '3.9' }
       - name: Install dependencies
         run: pip install numpy matplotlib
       - name: Run Benchmark
-        run: python Resonance_Emulator.py
+        run: python ../../benchmark/Resonance_Emulator.py
       - name: Commit Results
         run: |
           git config --global user.name 'github-actions[bot]'
