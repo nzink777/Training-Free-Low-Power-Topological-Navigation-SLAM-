@@ -1,3 +1,4 @@
+[![Automated Benchmark](https://github.com/nzink777/Training-Free-Low-Power-Topological-Navigation-SLAM-/actions/workflows/benchmark.yml/badge.svg)](https://github.com/nzink777/Training-Free-Low-Power-Topological-Navigation-SLAM-/actions/workflows/benchmark.yml)
 # Training-Free Low-Power Topological Navigation SLAM
 
 ## Metadata & Registry Invariants
