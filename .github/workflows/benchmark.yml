@@ -1,24 +1,13 @@
-name: Automated Benchmark
-on:
-  push:
-    branches: [ main ]
-
-jobs:
-  build:
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout Code
-        uses: actions/checkout@v3
-
-      - name: DISCOVER FILE STRUCTURE
-        run: |
-          echo "--- Current Directory Contents ---"
-          ls -R
-          echo "----------------------------------"
-
       - name: Run Benchmark
         run: |
-          # The find command will now succeed because we know exactly where it is
-          SCRIPT_PATH=$(find . -name "Resonance_Emulator.py")
+          # Find the file, ensuring it is a file (-type f) and not a directory
+          SCRIPT_PATH=$(find . -name "Resonance_Emulator.py" -type f | head -n 1)
+          
+          if [ -z "$SCRIPT_PATH" ]; then
+            echo "Error: Resonance_Emulator.py not found!"
+            exit 1
+          fi
+          
+          echo "Executing script at: $SCRIPT_PATH"
           python "$SCRIPT_PATH"
           
