@@ -16,7 +16,7 @@ jobs:
       - name: Install dependencies
         run: pip install numpy matplotlib
       - name: Run Benchmark
-        run: python ../benchmark/Resonance_Emulator.py
+        run: python /benchmark/Resonance_Emulator.py
       - name: Commit Results
         run: |
           git config --global user.name 'github-actions[bot]'
