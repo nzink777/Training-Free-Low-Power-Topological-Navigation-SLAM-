@@ -18,7 +18,7 @@ jobs:
           python-version: '3.9'
 
       - name: Install dependencies
-        run: pip install numpy matplotlib
+        run: pip install numpy matplotlib networkx
       - name: Run Benchmark
         run: python $GITHUB_WORKSPACE/benchmark/Resonance_Emulator.py
 
