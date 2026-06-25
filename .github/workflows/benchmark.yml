@@ -9,18 +9,34 @@ jobs:
     permissions:
       contents: write
     steps:
-      - uses: actions/checkout@v5
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
       - name: Set up Python
-        uses: actions/setup-python@v5
-        with: { python-version: '3.9' }
+        uses: actions/setup-python@v4
+        with: 
+          python-version: '3.9'
+
       - name: Install dependencies
         run: pip install numpy matplotlib
+
       - name: Run Benchmark
-        run: python benchmark/Resonance_Emulator.py
+        run: |
+          # Find the script and execute it regardless of nested folder structure
+          SCRIPT_PATH=$(find . -name "Resonance_Emulator.py" | head -n 1)
+          if [ -z "$SCRIPT_PATH" ]; then
+            echo "Error: Resonance_Emulator.py not found!"
+            exit 1
+          fi
+          python "$SCRIPT_PATH"
+
       - name: Commit Results
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          # Add both the image and the data log
           git add benchmark_results.png benchmark_data.json
-          git commit -m "Update benchmark metrics and data logs" || exit 0
+          # Commit only if there are changes to avoid error if nothing changed
+          git commit -m "Update benchmark metrics and data logs" || echo "No changes to commit"
           git push
+          
