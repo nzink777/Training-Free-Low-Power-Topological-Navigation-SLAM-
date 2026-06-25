@@ -19,16 +19,8 @@ jobs:
 
       - name: Install dependencies
         run: pip install numpy matplotlib
-
       - name: Run Benchmark
-        run: |
-          # Find the script and execute it regardless of nested folder structure
-          SCRIPT_PATH=$(find . -name "Resonance_Emulator.py" | head -n 1)
-          if [ -z "$SCRIPT_PATH" ]; then
-            echo "Error: Resonance_Emulator.py not found!"
-            exit 1
-          fi
-          python "$SCRIPT_PATH"
+        run: python $GITHUB_WORKSPACE/benchmark/Resonance_Emulator.py
 
       - name: Commit Results
         run: |
